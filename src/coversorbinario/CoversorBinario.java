@@ -16,17 +16,32 @@ public class CoversorBinario {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        CoversorBinario b = new CoversorBinario();
-        
-        System.out.println(b.conversor(100,""));
-    }
-    
-    public String conversor(int n, String s){
-        if(n > 1){
-            int t = n%2;
-            return conversor(n/2, t+s);
-        } else {
-            return n+s;
+        int n, n1, j;
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Digite el numero a convertir");
+        n= sc.nextInt();
+        n1=n;
+        j=0;
+        int []R;
+        R= new int[20];
+        while((n1/2) != 1){
+            j=j+1;
+            R[j]=n1%2;
+            n1= n1/2;
+        }
+        if(n1==3){
+           j=j+1;
+           R[j]=1;
+           j=j+1;
+           R[j]=1;
+        }else{
+            j=j+1;
+            R[j]=0;
+            j=j+1;
+            R[j]=1;
+        }
+        for(int i=j;i<=1;i--){
+            System.out.println(""+R[i]);
         }
     }
     
